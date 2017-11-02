@@ -9,7 +9,7 @@ public class SimpleController {
 
 	@RequestMapping("hello")
 	public String hello() {
-		return "hello";
+		return "吃俺老孙一棒";
 	}
 
 }
