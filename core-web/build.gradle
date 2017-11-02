@@ -22,6 +22,7 @@ repositories {
 	mavenCentral()
 }
 
+bootRepackage.enabled = false
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-aop')
