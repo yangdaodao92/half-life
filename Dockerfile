@@ -1,5 +1,6 @@
 FROM gradle:4.2.1-jre8-alpine
 ADD settings.gradle /tmp/dependencies
+RUN mkdir -p /tmp/dependencies/core-web
 ADD core-web/build.gradle /tmp/dependencies/core-web
 RUN cd /tmp/dependencies && gradle --refresh-dependencies
 
