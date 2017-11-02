@@ -22,8 +22,6 @@ repositories {
 	mavenCentral()
 }
 
-bootRepackage.enabled = false
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-aop')
 	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
