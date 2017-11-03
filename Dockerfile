@@ -1,16 +1,22 @@
-FROM gradle:4.2.1-jre8-alpine
-RUN mkdir -p /tmp/dependencies/core-web
-ADD settings.gradle /tmp/dependencies
-ADD core-web/build.gradle /tmp/dependencies/core-web
-RUN cd /tmp/dependencies && gradle --refresh-dependencies
+FROM gradle:4.2.1-jdk8-alpine
+USER root
+MAINTAINER yangningxiao123@163.com
 
-COPY . /tmp/build
+COPY build.gradle /tmp/dependencies/
+COPY settings.gradle /tmp/dependencies/
+COPY core-web/src/main/java/com/halflife/MainApplication.java /tmp/dependencies/core-web/src/main/java/com/halflife/
+COPY core-web/build.gradle /tmp/dependencies/core-web/
+WORKDIR /tmp/dependencies
+RUN gradle build
 
-RUN cd /tmp/build && gradle :web-root:build \
-        #拷贝编译结果到指定目录
-        && mv core-web/build/libs/*.jar /app.jar \
-        #清理编译痕迹
-        && cd / && rm -rf /tmp/build
+RUN rm -rf /tmp/dependencies/
+COPY . /tmp/dependencies/
+
+WORKDIR /tmp/dependencies/
+RUN gradle :core-web:build
+RUN mv core-web/build/libs/*.jar /app.jar
+WORKDIR /
+RUN rm -rf /tmp/dependencies/
 
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/app.jar"]
