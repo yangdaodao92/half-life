@@ -1,0 +1,20 @@
+.wrapper {
+    border-right: #000000 solid 1px;
+    padding: 5px;
+    background-color: white;
+}
+
+.wrapper .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: gray 1px solid;
+    font-size: 1.3rem;
+    padding: 0 5px 5px;
+    margin-bottom: 5px;
+}
+
+.fa-plus-circle {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
