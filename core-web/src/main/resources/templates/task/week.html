@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div class="panel panel-default" th:each="task:${listWeek}">
+    <div class="panel-heading" role="tab" th:id="'headingOne2_' + ${task.id}">
+        <h4 class="panel-title" style="display: flex; justify-content: space-between; align-items: center">
+            <span style="display: flex; justify-content: space-between; align-items: center">
+                <i class="fa fa-arrow-left moveToToday" th:attr="taskId=${task.id}"></i>
+                <a data-toggle="collapse" th:href="'#collapseOne2_' + ${task.id}" th:if="${#lists.size(task.childTaskList) > 0}"
+                   aria-expanded="true" th:attr="aria-controls='collapseOne2_' + ${task.id}">
+                    <i class="fa fa-navicon"></i>
+                </a>
+                <span style="font-size: 1rem" th:text="${task.content}"></span>
+            </span>
+            <span th:switch="${task.status}">
+                <i class="fa fa-edit"></i>
+                &nbsp;|
+                <i class="fa fa-square-o" th:case="0"></i>
+                <i class="fa fa-check-square-o" th:case="10"></i>
+            </span>
+        </h4>
+    </div>
+    <div th:id="'collapseOne2_' + ${task.id}" class="panel-collapse collapse show" role="tabpanel" th:attr="aria-labelledby='headingOne2_' + ${task.id}">
+        <h5 th:each="childTask:${task.childTaskList}" class="panel-title childTaskWrapper">
+            <span style="display: flex; justify-content: space-between; align-items: center">
+                <i class="fa fa-arrow-left moveToToday" th:attr="taskId=${task.id},childTaskIndex=${childTask.index}"></i>
+                <span style="font-size: 1rem" th:text="${childTask.content}"></span>
+            </span>
+            <span th:switch="${task.status}">
+                <i class="fa fa-square-o" th:case="0"></i>
+                <i class="fa fa-check-square-o" th:case="10"></i>
+            </span>
+        </h5>
+    </div>
+</div>
+
+</html>

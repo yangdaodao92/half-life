@@ -9,8 +9,10 @@ import java.util.Date;
 public class ChildTask {
 
 	private ObjectId taskId;
+	private Integer index;
 	private String content;
 	private Integer status = 0;
+
 	private Date createAt = new Date();
 
 }

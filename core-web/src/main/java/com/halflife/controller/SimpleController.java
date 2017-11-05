@@ -1,6 +1,6 @@
 package com.halflife.controller;
 
-import com.halflife.bean.User;
+import com.halflife.document.User;
 import com.halflife.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

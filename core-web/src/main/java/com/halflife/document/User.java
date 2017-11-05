@@ -1,4 +1,4 @@
-package com.halflife.bean;
+package com.halflife.document;
 
 import lombok.Data;
 import org.bson.types.ObjectId;

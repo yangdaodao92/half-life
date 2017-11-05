@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div class="panel panel-default" th:each="task:${listToday}">
+    <div class="panel-heading" role="tab" th:id="'headingOne1_' + ${task.id}">
+        <h4 class="panel-title" style="display: flex; justify-content: space-between; align-items: center">
+            <span style="display: flex; justify-content: space-between; align-items: center">
+                <i class="fa fa-arrow-right removeFromToday" th:attr="taskId=${task.id}"></i>
+                <a data-toggle="collapse" th:href="'#collapseOne1_' + ${task.id}" href="" aria-expanded="true" th:attr="aria-controls='collapseOne1_' + ${task.id}">
+                    <i class="fa fa-navicon"></i>
+                </a>
+                <span style="font-size: 1rem" th:text="${task.content}"></span>
+            </span>
+            <span th:switch="${task.status}">
+                <i class="fa fa-square-o" th:case="0"></i>
+                <i class="fa fa-check-square-o" th:case="10"></i>
+                &nbsp;|
+                <i class="fa fa-edit"></i>
+            </span>
+        </h4>
+    </div>
+    <div th:id="'collapseOne1_' + ${task.id}" class="panel-collapse collapse show" role="tabpanel" th:attr="aria-labelledby='headingOne1_' + ${task.id}">
+        这里是子任务
+    </div>
+</div>
+
+</html>

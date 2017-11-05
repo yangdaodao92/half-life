@@ -1,6 +1,5 @@
 .wrapper {
-    border-right: #000000 solid 1px;
-    padding: 5px;
+    margin: 3px;
     background-color: white;
 }
 
@@ -14,7 +13,27 @@
     margin-bottom: 5px;
 }
 
+.childTaskWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 34px;
+    margin-right: 6px;
+}
+
+.child-task {
+    margin-bottom: 3px;
+    display: inline-block;
+    width: 90%;
+    margin-right: 8px;
+}
+
 .fa-plus-circle {
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+.fa-navicon,.fa-arrow-right,.fa-arrow-left {
+    cursor: pointer;
+    margin-right: 10px
 }
