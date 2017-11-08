@@ -1,14 +1,13 @@
 package com.halflife.repository;
 
-
-import com.halflife.bean.Task;
+import com.halflife.bean.web.Web;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface TaskRepository extends MongoRepository<Task, ObjectId> {
+public interface WebRepository extends MongoRepository<Web, ObjectId> {
 
-	List<Task> findByIdIn(List<ObjectId> ids);
+	List<Web> findAllByWebWrapperId(ObjectId webWrapperId);
 
 }

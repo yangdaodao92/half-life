@@ -1,6 +1,6 @@
 package com.halflife.controller;
 
-import com.halflife.document.User;
+import com.halflife.bean.User;
 import com.halflife.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

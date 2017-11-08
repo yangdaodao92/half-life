@@ -1,7 +1,7 @@
 package com.halflife.service;
 
-import com.halflife.document.CurrentTask;
-import com.halflife.document.Task;
+import com.halflife.bean.CurrentTask;
+import com.halflife.bean.Task;
 import com.halflife.repository.CurrentTaskRepository;
 import com.halflife.repository.TaskRepository;
 import org.bson.types.ObjectId;

@@ -1,4 +1,4 @@
-package com.halflife.document;
+package com.halflife.bean;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -19,11 +19,15 @@ public class Task {
 	private ObjectId id;
 	private ObjectId createUserId;
 	private Date createAt = new Date();
+	private Date updateAt;
 
 	// 任务时间
 	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	@JsonFormat(pattern = "MM/dd/yyyy")
 	private Date planDate;
+	// 完成时间
+	private Date completeDate;
+
 	// 任务内容
 	private String content;
 	// 完成状态 0:未完成 10:完成 -1:已取消

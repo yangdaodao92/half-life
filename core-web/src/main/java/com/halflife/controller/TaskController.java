@@ -1,7 +1,7 @@
 package com.halflife.controller;
 
-import com.halflife.document.CurrentTask;
-import com.halflife.document.Task;
+import com.halflife.bean.CurrentTask;
+import com.halflife.bean.Task;
 import com.halflife.service.TaskService;
 import com.halflife.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
