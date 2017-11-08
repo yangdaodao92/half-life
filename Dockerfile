@@ -1,4 +1,5 @@
 FROM gradle:4.2.1-jdk8-alpine
+ENV GRADLE_USER_HOME=/project/.gradle
 USER root
 MAINTAINER yangningxiao123@163.com
 
@@ -13,7 +14,7 @@ RUN rm -rf /tmp/dependencies/
 COPY . /tmp/dependencies/
 
 WORKDIR /tmp/dependencies/
-RUN gradle :core-web:build
+RUN gradle bootRepackage
 RUN mv core-web/build/libs/*.jar /app.jar
 WORKDIR /
 RUN rm -rf /tmp/dependencies/
