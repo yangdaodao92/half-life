@@ -3,6 +3,7 @@ buildscript {
 		springBootVersion = '1.5.8.RELEASE'
 	}
 	repositories {
+		mavenLocal()
 		mavenCentral()
 	}
 	dependencies {
@@ -23,6 +24,9 @@ repositories {
 }
 
 dependencies {
+	compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.23'
+	compile group: 'org.jsoup', name: 'jsoup', version: '1.8.3'
+
 	compile('org.springframework.boot:spring-boot-starter-aop')
 	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
