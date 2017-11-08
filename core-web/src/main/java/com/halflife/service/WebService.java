@@ -4,7 +4,11 @@ import com.halflife.bean.web.Web;
 import com.halflife.bean.web.WebWrapper;
 import com.halflife.repository.WebRepository;
 import com.halflife.repository.WebWrapperRepository;
+import com.halflife.util.HtmlUnitUtil;
 import com.halflife.vo.WebVo;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -38,6 +42,15 @@ public class WebService {
 			web.setStatus(0);
 			webRepository.save(web);
 		}
+	}
+
+	private String getWebPageTitle(String url) {
+		Document document = Jsoup.parse(HtmlUnitUtil.getXml(url, true));
+		if (document != null) {
+			Element element = document.select("title").first();
+			return element.text();
+		}
+		return null;
 	}
 
 
