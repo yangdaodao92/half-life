@@ -2,7 +2,6 @@ package com.halflife.controller;
 
 import com.halflife.bean.web.WebWrapper;
 import com.halflife.service.WebService;
-import com.halflife.vo.ResultVo;
 import com.halflife.vo.WebVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +21,7 @@ public class WebController {
 
 	@RequestMapping
 	public String init(Model model) {
-		return "/web/web";
+		return "web/web";
 	}
 
 	@RequestMapping("load")

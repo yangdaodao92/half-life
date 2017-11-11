@@ -22,27 +22,27 @@ public class TaskController {
 
 	@RequestMapping
 	public String init() {
-		return "/task/task";
+		return "task/task";
 	}
 
 	@RequestMapping("list/today")
 	public String listToday(Model model) {
 		model.addAttribute("listToday", taskService.listToday());
 
-		return "/task/today";
+		return "task/today";
 	}
 
 	@RequestMapping("list/week")
 	public String listWeek(Model model) {
 		model.addAttribute("listWeek", taskService.listWeek());
 
-		return "/task/week";
+		return "task/week";
 	}
 
 	@RequestMapping("list/all")
 	public String listAll(Model model) {
 
-		return "/task/task";
+		return "task/task";
 	}
 
 

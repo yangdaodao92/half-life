@@ -20,10 +20,10 @@ public class LoginController {
 		User user1 = loginService.login(user);
 		if (user1 != null) {
 			model.addAttribute("userId", user1.getId());
-			return "redirect:/task/list";
+			return "redirect:task/list";
 		} else {
 			model.addAttribute("user", user);
-			return "/login";
+			return "login";
 		}
 	}
 
