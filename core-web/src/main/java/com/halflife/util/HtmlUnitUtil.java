@@ -6,7 +6,11 @@ import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
+import java.io.IOException;
+
 public class HtmlUnitUtil {
+
+	public static WebClient instance = getWebClient(false);
 
 	public static WebClient getWebClient() {
 		return getWebClient(true);
@@ -50,33 +54,33 @@ public class HtmlUnitUtil {
 	}
 
 	public static String getXml(String url){
-		WebClient webClient = getWebClient();
 		HtmlPage htmlPage;
-		webClient.getOptions().setJavaScriptEnabled(false);
 		try {
-			htmlPage = webClient.getPage(url);
+			instance.getOptions().setJavaScriptEnabled(false);
+			htmlPage = instance.getPage(url);
 			return htmlPage.asXml();
 		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
+			instance.getOptions().setJavaScriptEnabled(true);
+			try {
+				htmlPage = instance.getPage(url);
+				return htmlPage.asXml();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 		return null;
 	}
 
-	/**
-	 * 使用一个新的webClient
-	 */
-	public static String getXml(String url, boolean flag){
-		WebClient webClient = getWebClient();
+	public static String getXml(String url, Boolean flag){
 		HtmlPage htmlPage;
-		webClient.getOptions().setJavaScriptEnabled(flag);
 		try {
-			htmlPage = webClient.getPage(url);
+			instance.getOptions().setJavaScriptEnabled(flag);
+			htmlPage = instance.getPage(url);
 			return htmlPage.asXml();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "";
+		return null;
 	}
 
 }

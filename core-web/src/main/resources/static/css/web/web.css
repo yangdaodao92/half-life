@@ -1,0 +1,54 @@
+.wrapper {
+    margin: 3px;
+    background-color: white;
+}
+
+.wrapper .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: gray 1px solid;
+    font-size: 1.3rem;
+    padding: 0 5px 5px;
+    margin-bottom: 5px;
+}
+
+.fa-plus-circle {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.fa-navicon,.fa-arrow-right,.fa-arrow-left {
+    cursor: pointer;
+    margin-right: 10px
+}
+
+.fa-minus-circle {
+    cursor: pointer;
+}
+
+.fa-clone {
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 22px;
+    color: blue;
+}
+
+.add-web-name {
+    margin-bottom: 3px;
+    display: inline-block;
+    margin-right: 8px;
+    width: 54%;
+}
+
+.add-web-url {
+    margin-bottom: 3px;
+    display: inline-block;
+    margin-right: 8px;
+    width: 40%;
+}
+
+.webWrapperName {
+    display: inline-block;
+    width: 90%;
+}

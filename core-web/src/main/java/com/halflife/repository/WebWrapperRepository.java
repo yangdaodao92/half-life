@@ -1,8 +1,14 @@
 package com.halflife.repository;
 
 import com.halflife.bean.web.WebWrapper;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface WebWrapperRepository extends MongoRepository<WebWrapper, ObjectId> {
+import java.util.List;
+
+public interface WebWrapperRepository extends MongoRepository<WebWrapper, String> {
+
+	List<WebWrapper> findAllByIsValid(Boolean isValid);
+
+	WebWrapper findByIdAndIsValid(String id, Boolean isValid);
+
 }
